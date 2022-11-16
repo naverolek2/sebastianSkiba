@@ -11,7 +11,7 @@
         <label for="login">Login:</label>
         <input type="text" name="login" id="loginID"><br>
         <label for="login">Hasło:</label>
-        <input type="text" name="haslo" id="hasloID"><br>
+        <input type="text" name="password" id="hasloID"><br>
         <label for="firstName">Imię:</label>
         <input type="text" name="firstName" id="firstNameID"><br>
         <label for="lastName">Nazwisko:</label>
