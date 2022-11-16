@@ -16,10 +16,12 @@
     </form>
     <?php
     if(isset($_REQUEST['login']) && isset($_REQUEST['password'])) {
+        require_once('config.php');
         require_once('class/User.class.php');
+       
         $user = new User($_REQUEST['login'], $_REQUEST['password']);
         if($user->logowanie()) {
-            echo "Zalogowano";
+            echo "Zalogowano uzytkownika: " . $user->getName();
         }
         else {
             echo "Nie zalogowano";
