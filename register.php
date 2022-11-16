@@ -7,7 +7,7 @@
     <title>Logowanie</title>
 </head>
 <body>
-    <form action="" method="POST">
+    <form action="" method="post">
         <label for="login">Login:</label>
         <input type="text" name="login" id="loginID"><br>
         <label for="login">Hasło:</label>
