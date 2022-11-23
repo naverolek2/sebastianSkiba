@@ -24,7 +24,7 @@ class User {
         $preparedQuery = $this->db->prepare($q);
         $preparedQuery->bind_param('ssss', $this->login, $passwordHash, $this->firstName, $this->lastName);
         $result = $preparedQuery->execute();
-        var_dump($this->db);
+       
         return $result;
         
     }

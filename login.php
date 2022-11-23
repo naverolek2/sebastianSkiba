@@ -7,25 +7,22 @@
     <title>Logowanie</title>
 </head>
 <body>
-    <form action="" method="post">
-        <label for="login">Login:</label>
-        <input type="text" name="login" id="loginID"><br>
-        <label for="haslo">Hasło:</label>
-        <input type="text" name="haslo" id="hasloID">
-        <input type="submit" value="Zaloguj">
-    </form>
+    
     <?php
+    require_once('config.php');
     if(isset($_REQUEST['login']) && isset($_REQUEST['password'])) {
-        require_once('config.php');
-        require_once('class/User.class.php');
-       
+        
         $user = new User($_REQUEST['login'], $_REQUEST['password']);
         if($user->logowanie()) {
-            echo "Zalogowano uzytkownika: " . $user->getName();
+            $twig->display('message.html.twig', ['message' =>"Zalogowano uzytkownika: " . $user->getName()]);
         }
         else {
-            echo "Nie zalogowano";
+            //echo "Nie zalogowano";
+            $twig->display('message.html.twig', ['message' => "błędny login lub hasło"]);
         }
+    }
+    else{
+        $twig->display('login.html.twig');
     }
     ?>
 </body>

@@ -7,30 +7,22 @@
     <title>Rejestrowanie</title>
 </head>
 <body>
-    <form action="" method="post">
-        <label for="login">Login:</label>
-        <input type="text" name="login" id="loginID"><br>
-        <label for="login">Hasło:</label>
-        <input type="text" name="password" id="hasloID"><br>
-        <label for="firstName">Imię:</label>
-        <input type="text" name="firstName" id="firstNameID"><br>
-        <label for="lastName">Nazwisko:</label>
-        <input type="text" name="lastName" id="lastNameID"><br>
-        <input type="submit" value="Rejestruj">
-        
-    </form>
+
     <?php
+    require_once('config.php');
     if(isset($_REQUEST['login']) && isset($_REQUEST['password'])) {
-        require_once('config.php');
-        require_once('class/User.class.php');
+        
         $user = new User($_REQUEST['login'], $_REQUEST['password']);
         $user->setFirstName($_REQUEST['firstName']);
         $user->setLastName($_REQUEST['lastName']);
         if($user->register()) {
-            echo "Zarejestrowano poprawnie";
+            $twig->display('message.html.twig', ['message' =>"Zarejestrowano poprawnie"]) ;
         } else {
-            echo "Błąd rejestracji użytkownika";
+            $twig->display('message.html.twig', ['message' => "Błąd rejestracji użytkownika"]) ;
         }
+    }
+    else {
+        $twig->display('register.html.twig');
     }
     ?>
 </body>
