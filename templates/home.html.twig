@@ -1,7 +1,11 @@
 {% include 'header.html.twig' %}
 Strona główna <br>
     {% if user is defined %}
-        Jesteś zalogowany jako: {{user.getName()}}
+        Jesteś zalogowany jako: {{user.getName()}} 
+
+        <a href="/loginform/logout/">Wyloguj</a>
+
     {% endif %}
-    <a href="/loginform/logout/">Wyloguj</a>
+    
+
 {% include 'footer.html.twig' %} 
