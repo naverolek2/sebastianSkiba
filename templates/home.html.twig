@@ -1,0 +1,11 @@
+{% include 'header.html.twig' %}
+Strona główna <br>
+    {% if user is defined %}
+        Jesteś zalogowany jako: {{user.getName()}} 
+
+        <a href="/sebastianSkiba/logout/">Wyloguj</a>
+
+    {% endif %}
+    
+
+{% include 'footer.html.twig' %} 
