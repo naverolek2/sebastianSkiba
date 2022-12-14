@@ -13,4 +13,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
  
 # Push every request to index.php
-RewriteRule ^(.*)$ test.php [QSA]
+RewriteRule ^(.*)$ index.php [QSA]

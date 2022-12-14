@@ -38,9 +38,6 @@ class User {
         $this->db = &$db;
     } 
 
-
-
-
     public function register() : bool{
         $passwordHash = password_hash($this->password, PASSWORD_ARGON2I);
         $q = "INSERT INTO user VALUES (NULL, ?, ?, ?, ?)";
@@ -99,6 +96,17 @@ class User {
     $preparedQuery->bind_param("ssi", $this->firstName, $this->lastName, $this->id);
     return $preparedQuery->execute();
 }
+public function changePassword(string $newPassword) : bool {
+    $newPassword = password_hash($newPassword, PASSWORD_ARGON2I);
+    $q = "UPDATE user SET
+            password = ?
+            WHERE id = ?";
+    $preparedQuery = $this->db->prepare($q);
+    $preparedQuery->bind_param("si", $newPassword, $this->id);
+    return $preparedQuery->execute();
+}
+
+
 
 }
 

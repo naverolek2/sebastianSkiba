@@ -2,12 +2,11 @@
     {% if user is defined %}
         Jesteś zalogowany jako: {{user.getName()}} 
         <form action="" method="post">
-            <label for="firstNameID">Imię:</label><br>
-            <input type="text" name="firstName" id="firstNameID" value="{{firstName}}"><br>
-            <label for="lastNameID">Nazwisko:</label><br>
-            <input type="text" name="lastName" id="lastNameID" value="{{lastName}}"><br>
-            <input type="submit" value="Zapisz">
+            <label for="passwordID">Nowe hasło:</label><br>
+            <input type="password" name="password" id="passwordID"><br>
+            <label for="passwordRepeatID">Powtórz hasło:</label><br>
+            <input type="password" name="passwordRepeat" id="passwordRepeatID"><br>
+            <input type="submit" value="Zmień hasło">
         </form>
-        <a href="/sebastianSkiba/logout/">Wyloguj</a>
     {% endif %}
 {% include 'footer.html.twig' %} 
