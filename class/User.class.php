@@ -83,7 +83,7 @@ class User {
         $this->lastName = $lastName;
    }
    public function getName() : string {
-    return $this->firstName . "" . $this->lastName;
+    return $this->firstName . " " . $this->lastName;
    }
 
 
